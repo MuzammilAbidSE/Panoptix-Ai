@@ -27,7 +27,7 @@ export const hero = {
     { value: "7", label: "Vapi AI Tools" },
     { value: "24/7", label: "Voice Ops" },
     { value: "<3s", label: "Live Lookup" },
-    { value: "2", label: "Languages" },
+    { value: "2", label: "AI Agents" },
   ],
 };
 
@@ -140,18 +140,18 @@ export const agents = [
     accent: "from-red-600 to-neutral-900",
   },
   {
-    name: "Ayesha",
-    epithet: "Urdu Voice Agent",
-    language: "Roman Urdu · Multilingual",
-    role: "Bilingual Support AI",
+    name: "Lynceus",
+    epithet: "Fleet Surveillance AI",
+    language: "Ops & Security Teams",
+    role: "Fleet Intelligence Agent",
     greeting:
-      "Assalam o alaikum ji, main Ayesha bol rahi hoon. Aap customer hain ya naya tracker lagwana chahte hain?",
+      "Lynceus online. I'm tracking 847 units across your network. Which region or depot should I focus on?",
     capabilities: [
-      "Same 7 Vapi tools as English agent",
-      "Natural Roman Urdu conversation",
-      "Sales flow — no human escalation",
-      "Emergency Slack handoff in Urdu",
-      "Deepgram Nova-3 transcription",
+      "Multi-vehicle fleet surveillance",
+      "Geofence & route anomaly detection",
+      "Driver behavior scoring",
+      "Fleet-wide status dashboards",
+      "Priority security escalation",
     ],
     accent: "from-neutral-800 to-black",
   },
@@ -162,7 +162,7 @@ export const howItWorks = [
     step: "01",
     title: "Caller Dials In",
     description:
-      "Vapi picks up instantly — English (Panoptix) or Urdu (Ayesha). No IVR menus, no hold queue.",
+      "Vapi picks up instantly — Panoptix for support & sales, Lynceus for fleet surveillance. No IVR menus, no hold queue.",
   },
   {
     step: "02",
@@ -223,7 +223,7 @@ export const packages = [
     popular: false,
     features: [
       "Everything in Pro",
-      "Bilingual agents (English + Urdu)",
+      "Lynceus fleet surveillance agent",
       "escalate_to_human → Slack ops",
       "Emergency & theft recovery flow",
       "API access + webhooks",
@@ -268,9 +268,9 @@ export const useCases = [
     icon: "Shield",
   },
   {
-    title: "Multi-language fleet ops",
+    title: "Fleet-wide surveillance",
     description:
-      "English and Urdu agents share the same 7 tools — one platform, two languages, zero extra headcount.",
+      "Lynceus monitors every unit at once — geofence breaches, route anomalies, and cross-region status without opening a dashboard.",
     icon: "Building2",
   },
 ];
@@ -280,7 +280,7 @@ export const valueProps = [
   "Sales fully automated — no human handoff",
   "Slack escalation for emergencies only",
   "PostgreSQL + n8n backend included",
-  "Bilingual English & Urdu agents",
+  "Panoptix + Lynceus dual-agent ops",
 ];
 
 export const navLinks = [

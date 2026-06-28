@@ -27,7 +27,7 @@ export function Packages() {
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-sm text-muted">
             Plans are priced per vehicle and map directly to the Vapi AI
-            capabilities we built — support tools, sales automation, bilingual
+            capabilities we built — support tools, sales automation, fleet
             agents, and Slack escalation. Minimum 10 vehicles.
           </p>
 
