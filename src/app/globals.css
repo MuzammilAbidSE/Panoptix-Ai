@@ -2,25 +2,166 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-border: #e5e5e5;
+  --muted: #525252;
+  --accent: #dc2626;
+  --accent-glow: rgba(220, 38, 38, 0.12);
+  --gradient-start: #dc2626;
+  --gradient-end: #0a0a0a;
+  --grid-color: rgba(220, 38, 38, 0.05);
+  --island-bg: rgba(255, 255, 255, 0.94);
+  --island-border: rgba(0, 0, 0, 0.08);
+  --brand: #dc2626;
+  --brand-dark: #991b1b;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #141414;
+  --card-border: #262626;
+  --muted: #a3a3a3;
+  --accent: #ef4444;
+  --accent-glow: rgba(239, 68, 68, 0.14);
+  --gradient-start: #ef4444;
+  --gradient-end: #fafafa;
+  --grid-color: rgba(239, 68, 68, 0.04);
+  --island-bg: rgba(10, 10, 10, 0.94);
+  --island-border: rgba(255, 255, 255, 0.1);
+  --brand: #ef4444;
+  --brand-dark: #dc2626;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-brand: var(--brand);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.glow-orb {
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+}
+
+.glass-card {
+  background: color-mix(in srgb, var(--card) 80%, transparent);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.island-pill {
+  background: var(--island-bg);
+  border: 1px solid var(--island-border);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border-radius: 9999px;
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.06) inset,
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 8px 40px rgba(0, 0, 0, 0.12),
+    0 0 60px rgba(220, 38, 38, 0.06);
+  transition:
+    max-width 0.45s cubic-bezier(0.32, 0.72, 0, 1),
+    box-shadow 0.35s ease,
+    transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.island-pill-compact {
+  transform: translateY(0);
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.08) inset,
+    0 2px 8px rgba(0, 0, 0, 0.14),
+    0 12px 32px rgba(0, 0, 0, 0.16),
+    0 0 40px rgba(220, 38, 38, 0.1);
+}
+
+.island-pill-expanded {
+  border-radius: 1.25rem;
+  max-width: 24rem !important;
+}
+
+.dark .island-pill-compact {
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.06) inset,
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 12px 32px rgba(0, 0, 0, 0.5),
+    0 0 36px rgba(239, 68, 68, 0.12);
+}
+
+.dark .island-pill {
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.04) inset,
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 8px 40px rgba(0, 0, 0, 0.55),
+    0 0 48px rgba(239, 68, 68, 0.08);
+}
+
+.island-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--island-border) 20%,
+    var(--island-border) 80%,
+    transparent
+  );
 }
