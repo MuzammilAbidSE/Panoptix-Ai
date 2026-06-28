@@ -4,7 +4,7 @@ export const site = {
   epithet: "Fleet Intelligence",
   tagline: "Partner Fleet Platform",
   description:
-    "AI-powered fleet platform for GPS tracking companies. White-label ready, API-first, with voice agents that answer your clients' calls — 24/7.",
+    "AI-powered fleet platform for GPS tracking companies. White-label ready, API-first, with Vapi voice agents that handle support, sales, and escalations — 24/7.",
   phone: "+1 (774) 459-3054",
   email: "business@codexpsolutions.com",
   website: "https://fleet.codexpsolutions.com",
@@ -21,13 +21,13 @@ export const hero = {
   headline: "Your Entire Fleet.",
   headlineAccent: "One Intelligence.",
   subheadline:
-    "Built for GPS tracking companies and fleet operators. White-label ready platform, AI phone ops, and per-vehicle pricing that scales with the complexity you manage.",
+    "Built for GPS tracking companies and fleet operators. Vapi AI agents answer your clients' calls — verify accounts, pull live GPS, close sales, and escalate emergencies — all without a hold queue.",
   cta: { primary: "Partner Plans", secondary: "See Platform" },
   stats: [
-    { value: "500+", label: "Vehicles / Account" },
-    { value: "24/7", label: "Ops Support" },
+    { value: "7", label: "Vapi AI Tools" },
+    { value: "24/7", label: "Voice Ops" },
     { value: "<3s", label: "Live Lookup" },
-    { value: "40%", label: "Avg. Idle Reduction" },
+    { value: "2", label: "Languages" },
   ],
 };
 
@@ -40,75 +40,118 @@ export const industries = [
   "Corporate Transport",
 ];
 
+/** What we actually built — live in Vapi + n8n today */
+export const vapiPlatform = {
+  stack: ["Vapi", "GPT-4o", "n8n", "PostgreSQL", "Slack"],
+  tools: [
+    {
+      name: "verify_customer",
+      label: "Customer Verification",
+      description: "Match callers by phone number or account ID (VT-xxxxx) before sharing any data.",
+    },
+    {
+      name: "lookup_vehicles",
+      label: "Fleet Lookup",
+      description: "List every vehicle on an account — plate, make, model, and tracker status.",
+    },
+    {
+      name: "get_live_tracking",
+      label: "Live GPS on Call",
+      description: "Pull real-time location, speed, and vehicle state (moving, parked, offline) in seconds.",
+    },
+    {
+      name: "get_billing_info",
+      label: "Billing & Renewals",
+      description: "Plan name, renewal date, balance due, and payment status — spoken naturally on the call.",
+    },
+    {
+      name: "get_sales_packages",
+      label: "AI Sales Management",
+      description: "Quote packages by fleet size, recommend tiers, and negotiate discounts up to 10% — no human needed.",
+    },
+    {
+      name: "submit_sales_lead",
+      label: "Lead Capture",
+      description: "Capture name, phone, fleet size, and package interest → Slack alert. Team follows up within 24h.",
+    },
+    {
+      name: "escalate_to_human",
+      label: "Emergency Escalation",
+      description: "Stolen vehicle, SOS, or technical issues → instant Slack handoff to your ops team. Sales never escalates.",
+    },
+  ],
+};
+
 export const features = [
   {
     icon: "MapPin",
-    title: "Live Fleet Command",
+    title: "Live GPS on Call",
     description:
-      "See every vehicle on one map — status, speed, ETA, and exceptions across regions in real time.",
+      "Vapi tool get_live_tracking — callers get speed, location, and status without opening a dashboard.",
   },
   {
     icon: "Shield",
-    title: "Asset Protection",
+    title: "Emergency Escalation",
     description:
-      "Theft, unauthorized use, or route deviation? Panoptix flags it and escalates to your security team instantly.",
+      "Stolen vehicle or SOS triggers escalate_to_human → your Slack ops channel in real time.",
   },
   {
     icon: "BarChart3",
-    title: "Executive Analytics",
+    title: "AI Sales Management",
     description:
-      "Monthly fleet reports, fuel waste analysis, driver scoring, and idle-time ROI dashboards for leadership.",
+      "get_sales_packages quotes by fleet size, negotiates discounts, and submit_sales_lead captures the deal.",
   },
   {
     icon: "Bell",
-    title: "Automated Alerts",
+    title: "Account Verification",
     description:
-      "Geofence breaches, overspeeding, maintenance due, and SLA violations — routed to the right team.",
+      "verify_customer confirms identity by phone or account ID before any location or billing data is shared.",
   },
   {
     icon: "Truck",
-    title: "Dispatch & Routing",
+    title: "Fleet Vehicle Lookup",
     description:
-      "Optimize dispatch views, monitor route adherence, and reduce empty miles across your operation.",
+      "lookup_vehicles returns every unit on file — plate, make, model, and online/offline tracker status.",
   },
   {
     icon: "Zap",
-    title: "AI Phone Ops",
+    title: "Billing on Call",
     description:
-      "Fleet managers call in for live status, billing, or escalations — no portal login, no hold queue.",
+      "get_billing_info reads plan, renewal window, balance, and payment status — no hold music.",
   },
 ];
 
 export const agents = [
   {
     name: "Panoptix",
-    epithet: "Fleet Command AI",
-    language: "Global · 50+ Languages",
-    role: "Partner Support AI",
+    epithet: "English Voice Agent",
+    language: "English · GPT-4o",
+    role: "Support & Sales AI",
     greeting:
-      "Panoptix here. I have eyes on your full fleet. Need a vehicle location, account summary, or escalation?",
+      "Hey, thanks for calling. Panoptix here. Existing customer, or looking to get trackers for your fleet?",
     capabilities: [
-      "Multi-account fleet verification",
-      "Live vehicle & unit lookup",
-      "Contract & billing inquiries",
-      "Enterprise plan consultation",
-      "Priority incident escalation",
+      "verify_customer — account lookup by phone",
+      "get_live_tracking — GPS on call",
+      "get_billing_info — plan & renewal",
+      "get_sales_packages — quote & negotiate",
+      "submit_sales_lead — capture & close",
+      "escalate_to_human — emergencies only",
     ],
     accent: "from-red-600 to-neutral-900",
   },
   {
-    name: "Lynceus",
-    epithet: "Fleet Surveillance AI",
-    language: "Ops & Security Teams",
-    role: "Fleet Intelligence Agent",
+    name: "Ayesha",
+    epithet: "Urdu Voice Agent",
+    language: "Roman Urdu · Multilingual",
+    role: "Bilingual Support AI",
     greeting:
-      "Lynceus online. I'm tracking 847 units across your network. Which region or depot should I focus on?",
+      "Assalam o alaikum ji, main Ayesha bol rahi hoon. Aap customer hain ya naya tracker lagwana chahte hain?",
     capabilities: [
-      "Fleet-wide anomaly detection",
-      "Depot & geofence monitoring",
-      "Driver behavior scoring",
-      "Cross-region status reports",
-      "Security incident handoff",
+      "Same 7 Vapi tools as English agent",
+      "Natural Roman Urdu conversation",
+      "Sales flow — no human escalation",
+      "Emergency Slack handoff in Urdu",
+      "Deepgram Nova-3 transcription",
     ],
     accent: "from-neutral-800 to-black",
   },
@@ -117,27 +160,27 @@ export const agents = [
 export const howItWorks = [
   {
     step: "01",
-    title: "Connect Fleet",
+    title: "Caller Dials In",
     description:
-      "We onboard your vehicles, depots, and teams. API or turnkey install — built for 10 to 10,000+ units.",
+      "Vapi picks up instantly — English (Panoptix) or Urdu (Ayesha). No IVR menus, no hold queue.",
   },
   {
     step: "02",
-    title: "Monitor Live",
+    title: "AI Verifies & Looks Up",
     description:
-      "Operations dashboards and AI phone access give every manager instant fleet visibility.",
+      "verify_customer confirms identity → lookup_vehicles or get_live_tracking pulls data from PostgreSQL.",
   },
   {
     step: "03",
-    title: "Optimize Ops",
+    title: "Sales or Support",
     description:
-      "Cut idle time, improve route compliance, and reduce fuel waste with automated insights.",
+      "Prospects get get_sales_packages + submit_sales_lead. Customers get billing, tracking, and answers on the call.",
   },
   {
     step: "04",
-    title: "Scale Globally",
+    title: "Escalate if Needed",
     description:
-      "Multi-region support, dedicated account managers, and custom SLAs for enterprise accounts.",
+      "Theft, SOS, or unresolvable issues hit escalate_to_human → Slack alert to your team in seconds.",
   },
 ];
 
@@ -149,11 +192,12 @@ export const packages = [
     price: 220,
     popular: false,
     features: [
-      "Fleet dashboard & live map",
-      "Driver scoring & alerts",
-      "Geofence & speed monitoring",
-      "Weekly ops reports",
-      "AI phone support 24/7",
+      "Vapi AI voice agent (English)",
+      "verify_customer + lookup_vehicles",
+      "get_live_tracking on call",
+      "get_billing_info on call",
+      "PostgreSQL customer database",
+      "n8n workflow automation",
     ],
   },
   {
@@ -164,9 +208,10 @@ export const packages = [
     popular: true,
     features: [
       "Everything in Starter",
-      "Multi-depot views & dispatch",
-      "Route & idle-time analytics",
-      "API access (read)",
+      "AI sales management (get_sales_packages)",
+      "Automated discount negotiation",
+      "submit_sales_lead → Slack alerts",
+      "Sales never escalates to human",
       "Priority support SLA",
     ],
   },
@@ -178,10 +223,11 @@ export const packages = [
     popular: false,
     features: [
       "Everything in Pro",
-      "White-label client portal",
-      "Full API & webhooks",
+      "Bilingual agents (English + Urdu)",
+      "escalate_to_human → Slack ops",
+      "Emergency & theft recovery flow",
+      "API access + webhooks",
       "Dedicated success manager",
-      "Custom geofence zones",
     ],
   },
   {
@@ -192,52 +238,54 @@ export const packages = [
     custom: true,
     popular: false,
     features: [
-      "Global multi-region rollout",
+      "Full Vapi tool suite — custom workflows",
+      "Multi-region agent deployment",
+      "Custom Slack escalation routing",
       "White-label + custom domain",
       "SSO & enterprise compliance",
       "24/7 dedicated ops line",
-      "Tailored contract & SLA",
     ],
   },
 ];
 
 export const useCases = [
   {
-    title: "Logistics & last-mile delivery",
+    title: "GPS tracking company support line",
     description:
-      "Track 200+ delivery vans across cities. Monitor SLAs, driver behavior, and route compliance from one command center.",
+      "Your clients call in — AI verifies them, reads live GPS, and answers billing without your team picking up.",
     icon: "Truck",
   },
   {
-    title: "Field service operations",
+    title: "Automated sales pipeline",
     description:
-      "Give dispatchers live technician locations, idle alerts, and instant AI status lookups without opening a dashboard.",
+      "Prospects ask for pricing → AI quotes by fleet size, negotiates discount, captures lead to Slack. Team installs within 24h.",
     icon: "Wrench",
   },
   {
-    title: "Construction & heavy equipment",
+    title: "Stolen vehicle emergency",
     description:
-      "Monitor excavators, trucks, and generators across job sites. Geofence sites and flag unauthorized movement.",
-    icon: "Building2",
+      "Caller reports theft → AI pulls live coordinates, stays calm, and escalate_to_human fires to your recovery team on Slack.",
+    icon: "Shield",
   },
   {
-    title: "Corporate & executive fleets",
+    title: "Multi-language fleet ops",
     description:
-      "Secure high-value vehicles with 24/7 monitoring, instant escalation, and executive-level reporting.",
-    icon: "Shield",
+      "English and Urdu agents share the same 7 tools — one platform, two languages, zero extra headcount.",
+    icon: "Building2",
   },
 ];
 
 export const valueProps = [
-  "Built for GPS tracking & fleet service providers",
-  "Per-vehicle pricing scales with fleet complexity",
-  "White-label portal for your end customers",
-  "AI phone ops — your clients call, we answer",
-  "API & webhooks for your existing stack",
+  "7 live Vapi AI tools — not a roadmap",
+  "Sales fully automated — no human handoff",
+  "Slack escalation for emergencies only",
+  "PostgreSQL + n8n backend included",
+  "Bilingual English & Urdu agents",
 ];
 
 export const navLinks = [
   { label: "Platform", href: "#features" },
+  { label: "Vapi Tools", href: "#vapi-tools" },
   { label: "AI Agents", href: "#agents" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Plans", href: "#packages" },

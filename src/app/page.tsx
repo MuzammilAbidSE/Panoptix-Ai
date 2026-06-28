@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { TrustedBy } from "@/components/TrustedBy";
 import { Features } from "@/components/Features";
+import { VapiTools } from "@/components/VapiTools";
 import { Agents } from "@/components/Agents";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Packages } from "@/components/Packages";
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <TrustedBy />
       <Features />
+      <VapiTools />
       <Agents />
       <HowItWorks />
       <Packages />

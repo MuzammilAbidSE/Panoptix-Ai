@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, Cpu } from "lucide-react";
 import { packages } from "@/lib/content";
 import { ScrollReveal } from "./ScrollReveal";
 
@@ -22,12 +22,13 @@ export function Packages() {
             Partner Plans
           </span>
           <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
-            Built for <span className="gradient-text">Tracking Companies</span>
+            What&apos;s Included at{" "}
+            <span className="gradient-text">Each Tier</span>
           </h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-muted">
-            Minimum 10 vehicles. Per-vehicle pricing scales with fleet size — from
-            $220/vehicle for growing partners up to $380+ for large-scale operators.
-            Annual contracts save 10%.
+          <p className="mx-auto mt-2 max-w-2xl text-sm text-muted">
+            Plans are priced per vehicle and map directly to the Vapi AI
+            capabilities we built — support tools, sales automation, bilingual
+            agents, and Slack escalation. Minimum 10 vehicles.
           </p>
 
           <div className="mt-5 inline-flex items-center rounded-full border border-card-border bg-card p-1">
@@ -79,6 +80,11 @@ export function Packages() {
                     </div>
                   )}
 
+                  <div className="mb-1 flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-muted">
+                    <Cpu className="h-3 w-3" />
+                    Vapi AI included
+                  </div>
+
                   <div className="mb-4">
                     <h3 className="font-bold">{pkg.name}</h3>
                     <p className="text-[11px] text-muted">{pkg.fleet}</p>
@@ -123,8 +129,8 @@ export function Packages() {
         </div>
 
         <p className="mt-6 text-center text-xs text-muted">
-          For GPS tracking & fleet service providers · White-label available on
-          Scale+ · Prices in USD · Minimum 10 vehicles
+          All plans run on Vapi + n8n + PostgreSQL · Sales handled by AI — no
+          human escalation · Emergency escalations via Slack · Prices in USD
         </p>
       </div>
     </section>
