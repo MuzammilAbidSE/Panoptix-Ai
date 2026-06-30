@@ -4,9 +4,9 @@ import {
   MapPin,
   Shield,
   BarChart3,
-  Bell,
-  Truck,
-  Zap,
+  PhoneIncoming,
+  PhoneOutgoing,
+  MessageCircle,
 } from "lucide-react";
 import { features } from "@/lib/content";
 import { ScrollReveal } from "./ScrollReveal";
@@ -16,9 +16,9 @@ const iconMap = {
   MapPin,
   Shield,
   BarChart3,
-  Bell,
-  Truck,
-  Zap,
+  PhoneIncoming,
+  PhoneOutgoing,
+  MessageCircle,
 };
 
 export function Features() {
@@ -31,13 +31,13 @@ export function Features() {
               Platform
             </span>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
-              Fleet Command for{" "}
-              <span className="gradient-text">Corporate Ops</span>
+              Three Ways to Reach{" "}
+              <span className="gradient-text">Your Clients</span>
             </h2>
             <p className="mt-3 text-sm text-muted sm:text-base">
-              Everything logistics directors and fleet managers need — live
-              visibility, automated alerts, and AI phone ops across your entire
-              operation.
+              Start with inbound calls. Add outbound follow-ups. Layer on
+              WhatsApp AI. Pick the channels that match how your clients
+              actually communicate.
             </p>
             <div className="mt-6 hidden lg:block">
               <FleetDashboardVisual />

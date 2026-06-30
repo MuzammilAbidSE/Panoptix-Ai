@@ -1,10 +1,10 @@
 "use client";
 
-import { Truck, Wrench, Building2, Shield } from "lucide-react";
+import { Truck, Wrench, Shield, MessageCircle } from "lucide-react";
 import { useCases, valueProps, site } from "@/lib/content";
 import { ScrollReveal } from "./ScrollReveal";
 
-const iconMap = { Truck, Wrench, Building2, Shield };
+const iconMap = { Truck, Wrench, Shield, MessageCircle };
 
 export function UseCases() {
   return (
@@ -18,7 +18,8 @@ export function UseCases() {
             Trusted by <span className="gradient-text">Corporate Fleets</span>
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-muted">
-            From 50-unit delivery fleets to 2,000+ vehicle logistics networks —
+            GPS tracking companies of every size — from regional operators to
+            global logistics networks.
             {site.name} scales with your operation.
           </p>
         </ScrollReveal>

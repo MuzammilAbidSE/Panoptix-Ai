@@ -24,7 +24,7 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-red-600" />
               </span>
-              Partner Fleet AI · 10+ Vehicles
+              Partner Fleet AI · Usage-based plans
             </span>
             <span className="inline-flex items-center rounded-full border border-card-border bg-card/40 px-3 py-1 text-xs text-muted backdrop-blur-sm">
               By{" "}

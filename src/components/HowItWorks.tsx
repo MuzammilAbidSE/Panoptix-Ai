@@ -20,8 +20,8 @@ export function HowItWorks() {
               <span className="gradient-text">Four Steps</span>
             </h2>
             <p className="mt-2 text-sm text-muted">
-              From onboarding 10 vehicles to scaling across regions — built for
-              corporate fleet operations.
+              Pick your channels and scale as your client base grows — each plan
+              includes a monthly AI usage allowance.
             </p>
 
             <div className="mt-6 space-y-4">

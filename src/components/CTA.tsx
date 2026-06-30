@@ -16,7 +16,7 @@ export function CTA() {
                 Ready to <span className="gradient-text">Scale Your Fleet?</span>
               </h2>
               <p className="mx-auto mt-2 max-w-md text-sm text-muted">
-                Talk to our team about onboarding 10 to 10,000+ vehicles. Reach us at{" "}
+                Talk to our team about the right plan and usage allowance for your call volume. Reach us at{" "}
                 <a href={`mailto:${site.email}`} className="text-red-600 hover:underline dark:text-red-400">
                   {site.email}
                 </a>

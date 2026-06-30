@@ -1,9 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Sparkles, Cpu } from "lucide-react";
-import { packages } from "@/lib/content";
+import { Check, Sparkles, PhoneIncoming, PhoneOutgoing, MessageCircle, Gauge } from "lucide-react";
+import { packages, channelLabels, usageNote, type PackageChannel } from "@/lib/content";
 import { ScrollReveal } from "./ScrollReveal";
+
+const channelIcons: Record<PackageChannel, typeof PhoneIncoming> = {
+  inbound: PhoneIncoming,
+  outbound: PhoneOutgoing,
+  whatsapp: MessageCircle,
+};
 
 function formatPrice(price: number) {
   return price.toLocaleString("en-US");
@@ -22,13 +28,12 @@ export function Packages() {
             Partner Plans
           </span>
           <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
-            What&apos;s Included at{" "}
-            <span className="gradient-text">Each Tier</span>
+            Grow by <span className="gradient-text">Channel</span>
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-sm text-muted">
-            Plans are priced per vehicle and map directly to the Vapi AI
-            capabilities we built — support tools, sales automation, fleet
-            agents, and Slack escalation. Minimum 10 vehicles.
+            Start with inbound calls. Upgrade to outbound follow-ups. Go
+            omnichannel with WhatsApp AI. Each plan includes a monthly AI usage
+            allowance — add top-up packs anytime you need more.
           </p>
 
           <div className="mt-5 inline-flex items-center rounded-full border border-card-border bg-card p-1">
@@ -80,17 +85,27 @@ export function Packages() {
                     </div>
                   )}
 
-                  <div className="mb-1 flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-muted">
-                    <Cpu className="h-3 w-3" />
-                    Vapi AI included
+                  <div className="mb-3 flex flex-wrap gap-1">
+                    {pkg.channels.map((ch) => {
+                      const Icon = channelIcons[ch];
+                      return (
+                        <span
+                          key={ch}
+                          className="inline-flex items-center gap-1 rounded-full border border-card-border bg-background px-2 py-0.5 text-[10px] font-medium text-muted"
+                        >
+                          <Icon className="h-2.5 w-2.5" />
+                          {channelLabels[ch]}
+                        </span>
+                      );
+                    })}
                   </div>
 
-                  <div className="mb-4">
+                  <div className="mb-3">
                     <h3 className="font-bold">{pkg.name}</h3>
-                    <p className="text-[11px] text-muted">{pkg.fleet}</p>
+                    <p className="text-[11px] text-muted">{pkg.tagline}</p>
                   </div>
 
-                  <div className="mb-4">
+                  <div className="mb-3">
                     {pkg.custom ? (
                       <span className="text-2xl font-bold">Custom</span>
                     ) : (
@@ -99,7 +114,16 @@ export function Packages() {
                       </span>
                     )}
                     <p className="text-[11px] text-muted">
-                      {pkg.custom ? "Contact sales" : "per vehicle / month"}
+                      {pkg.custom ? "Contact sales" : "per month"}
+                    </p>
+                  </div>
+
+                  {/* Usage allowance */}
+                  <div className="mb-4 flex items-start gap-2 rounded-lg border border-amber-500/20 bg-amber-500/5 px-3 py-2">
+                    <Gauge className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" />
+                    <p className="text-[11px] leading-snug text-muted">
+                      <span className="font-medium text-foreground">Included: </span>
+                      {pkg.usageAllowance}
                     </p>
                   </div>
 
@@ -128,10 +152,7 @@ export function Packages() {
           })}
         </div>
 
-        <p className="mt-6 text-center text-xs text-muted">
-          All plans run on Vapi + n8n + PostgreSQL · Sales handled by AI — no
-          human escalation · Emergency escalations via Slack · Prices in USD
-        </p>
+        <p className="mt-6 text-center text-xs text-muted">{usageNote}</p>
       </div>
     </section>
   );
